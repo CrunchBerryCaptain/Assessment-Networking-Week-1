@@ -4,11 +4,11 @@ rootdir: /home/runner/work/Assessment-Networking-Week-1/Assessment-Networking-We
 plugins: requests-mock-1.12.1
 collected 90 items
 
-test_postcode_cache.py FFFFFFFFF....                                     [ 14%]
+test_postcode_cache.py .............                                     [ 14%]
 test_postcode_cli.py ................................                    [ 50%]
 test_postcode_functions.py ............................................. [100%]
 
-======================== 9 failed, 81 passed in 15.53s =========================
+============================== 90 passed in 8.92s ==============================
 
 --------------------------------------------------------------------
 Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
