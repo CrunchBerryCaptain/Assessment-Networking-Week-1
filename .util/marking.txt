@@ -5,13 +5,10 @@ plugins: requests-mock-1.12.1
 collected 90 items
 
 test_postcode_cache.py FFFFFFFFFFFFF                                     [ 14%]
-test_postcode_cli.py FFF.FFFFFFFFFFFFFFFFFFFFF.F.....                    [ 50%]
+test_postcode_cli.py ................................                    [ 50%]
 test_postcode_functions.py ............................................. [100%]
 
-======================== 38 failed, 52 passed in 0.78s =========================
-************* Module postcode_cli
-postcode_cli.py:7:0: C0304: Final newline missing (missing-final-newline)
-postcode_cli.py:3:0: W0611: Unused ArgumentParser imported from argparse (unused-import)
+======================== 13 failed, 77 passed in 9.20s =========================
 ************* Module postcode_functions
 postcode_functions.py:15:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
 postcode_functions.py:21:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
@@ -20,5 +17,5 @@ postcode_functions.py:3:0: W0611: Unused import os (unused-import)
 postcode_functions.py:4:0: W0611: Unused import json (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.87/10 (previous run: 8.87/10, +0.00)
+Your code has been rated at 9.37/10 (previous run: 9.37/10, +0.00)
 
