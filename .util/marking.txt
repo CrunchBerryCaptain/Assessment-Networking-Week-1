@@ -4,18 +4,15 @@ rootdir: /home/runner/work/Assessment-Networking-Week-1/Assessment-Networking-We
 plugins: requests-mock-1.12.1
 collected 90 items
 
-test_postcode_cache.py FFFFFFFFFFFFF                                     [ 14%]
+test_postcode_cache.py FFFFFFFFF....                                     [ 14%]
 test_postcode_cli.py ................................                    [ 50%]
 test_postcode_functions.py ............................................. [100%]
 
-======================== 13 failed, 77 passed in 9.20s =========================
+======================== 9 failed, 81 passed in 10.20s =========================
 ************* Module postcode_functions
-postcode_functions.py:15:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-postcode_functions.py:21:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-postcode_functions.py:18:15: W0613: Unused argument 'cache' (unused-argument)
-postcode_functions.py:3:0: W0611: Unused import os (unused-import)
-postcode_functions.py:4:0: W0611: Unused import json (unused-import)
+postcode_functions.py:15:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+postcode_functions.py:23:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.37/10 (previous run: 9.37/10, +0.00)
+Your code has been rated at 9.81/10 (previous run: 9.81/10, +0.00)
 
