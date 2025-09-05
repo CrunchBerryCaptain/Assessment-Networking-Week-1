@@ -8,11 +8,8 @@ test_postcode_cache.py FFFFFFFFF....                                     [ 14%]
 test_postcode_cli.py ................................                    [ 50%]
 test_postcode_functions.py ............................................. [100%]
 
-======================== 9 failed, 81 passed in 10.20s =========================
-************* Module postcode_functions
-postcode_functions.py:15:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
-postcode_functions.py:23:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+======================== 9 failed, 81 passed in 15.53s =========================
 
-------------------------------------------------------------------
-Your code has been rated at 9.81/10 (previous run: 9.81/10, +0.00)
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
