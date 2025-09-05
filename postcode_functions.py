@@ -12,7 +12,7 @@ TEST_FILE = "./test_cache.json"
 
 def load_cache() -> dict:
     """Loads the cache from a file and converts it from JSON to a dictionary."""
-    with open(CACHE_FILE, "r") as file:
+    with open(CACHE_FILE, "r", encoding="utf-8") as file:
         cached_data = json.load(file)
 
     return cached_data
@@ -20,7 +20,7 @@ def load_cache() -> dict:
 
 def save_cache(cache: dict) -> None:
     """Saves the cache to a file as JSON"""
-    with open(CACHE_FILE, "w+") as file:
+    with open(CACHE_FILE, "w", encoding="utf-8") as file:
         json.dump(cache, file)
 
 
@@ -40,6 +40,7 @@ def validate_postcode(postcode: str) -> bool:
         if postcode in cached_data:
             is_valid = cached_data[postcode].get("valid")
             return is_valid
+
     else:
         pass
 
