@@ -1,24 +1,27 @@
 """Functions that interact with the Postcode API."""
 
-import os
+import os.path
 import json
 
 import requests as req
 
 
 CACHE_FILE = "./postcode_cache.json"
+TEST_FILE = "./test_cache.json"
 
 
 def load_cache() -> dict:
     """Loads the cache from a file and converts it from JSON to a dictionary."""
-    # This function is used in Task 3, you can ignore it for now.
-    ...
+    with open(CACHE_FILE, "r") as file:
+        cached_data = json.load(file)
+
+    return cached_data
 
 
-def save_cache(cache: dict):
+def save_cache(cache: dict) -> None:
     """Saves the cache to a file as JSON"""
-    # This function is used in Task 3, you can ignore it for now.
-    ...
+    with open(CACHE_FILE, "w+") as file:
+        json.dump(cache, file)
 
 
 def validate_postcode(postcode: str) -> bool:
@@ -29,6 +32,17 @@ def validate_postcode(postcode: str) -> bool:
 
     url = f"https://api.postcodes.io/postcodes/{postcode}/validate"
 
+    cache_exists = os.path.exists(CACHE_FILE)
+
+    # CHECK CACHE BEFORE CALL IF IT EXISTS
+    if cache_exists:
+        cached_data = load_cache()
+        if postcode in cached_data:
+            is_valid = cached_data[postcode].get("valid")
+            return is_valid
+    else:
+        pass
+
     response = req.get(url, timeout=10)
 
     if response.status_code == 500:
@@ -36,6 +50,12 @@ def validate_postcode(postcode: str) -> bool:
 
     response_json = response.json()
     is_valid = response_json.get("result")
+
+    if cache_exists:
+        cached_data.update({postcode: {"valid": is_valid}})
+        save_cache(cached_data)
+    else:
+        pass
 
     return is_valid
 
@@ -76,6 +96,16 @@ def get_postcode_completions(postcode_start: str) -> list[str]:
 
     url = f"https://api.postcodes.io/postcodes/{postcode_start}/autocomplete"
 
+    cache_exists = os.path.exists(CACHE_FILE)
+
+    if cache_exists:
+        cached_data = load_cache()
+        if postcode_start in cached_data:
+            completions = cached_data[postcode_start].get("completions")
+            return completions
+    else:
+        pass
+
     response = req.get(url, timeout=10)
 
     if response.status_code == 500:
@@ -86,6 +116,13 @@ def get_postcode_completions(postcode_start: str) -> list[str]:
 
     if result is None:
         raise ValueError("No relevant postcode found.")
+
+    # SAVE TO CACHE WHEN DONE IF IT EXISTS
+    if cache_exists:
+        cached_data.update({postcode_start: {"completions": completions}})
+        save_cache(cached_data)
+    else:
+        pass
 
     return result
 

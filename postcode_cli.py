@@ -28,5 +28,9 @@ if __name__ == "__main__":
         except ValueError:
             print(f"No matches for {postcode}.")
 
-        for i in range(5):
-            print(completions[i])
+        if len(completions) > 5:
+            for completion in completions[:5]:
+                print(completion)
+        else:
+            for completion in completions:
+                print(completion)
